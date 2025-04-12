@@ -3,7 +3,7 @@ import Sidebar from '../_components/Sidebar'
 
 const layout = ({ children }) => {
   return (
-    <div className='bg-white text-black'>
+    <div>
       <Sidebar children={children} />
     </div>
   )

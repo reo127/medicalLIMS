@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import Link from 'next/link';
 
 export default function Sidebar({children}) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -22,7 +23,7 @@ export default function Sidebar({children}) {
     { name: "Approve", icon: <CheckIcon className="h-5 w-5" />, href: "#" },
     { name: "Settings", icon: <GearIcon className="h-5 w-5" />, href: "#" },
     { name: "Payments", icon: <DrawingPinIcon className="h-5 w-5" />, href: "#" },
-    { name: "Patients Dashboard", icon: <PersonIcon className="h-5 w-5" />, href: "#" },
+    { name: "Patients Dashboard", icon: <PersonIcon className="h-5 w-5" />, href: "/dashboard" },
     { name: "Inventory", icon: <BackpackIcon className="h-5 w-5" />, href: "#" },
   ];
 
@@ -39,10 +40,12 @@ export default function Sidebar({children}) {
       >
         {/* Logo */}
         <div className="flex items-center justify-center p-4">
+          <Link href="/">
           <div className="font-bold flex items-center justify-center">
             <HomeIcon className="h-6 w-6 text-blue-600" />
             {isExpanded && <span className="ml-2">MedApp</span>}
           </div>
+          </Link>
         </div>
         
         <Separator />
@@ -91,7 +94,7 @@ export default function Sidebar({children}) {
                 <Button
                   variant="ghost"
                   className={cn(
-                    "w-full justify-start text-red-500 hover:text-red-600 hover:bg-red-50",
+                    "w-full justify-start text-red-500",
                     isExpanded ? "px-4" : "px-2"
                   )}
                   asChild
